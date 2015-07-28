@@ -60,6 +60,11 @@ class WindowsSpotifyScraper:
     def __get_spotify_pids(self):
         tasklist = subprocess.Popen("tasklist.exe /FI \"IMAGENAME eq spotify.exe\"", shell=True, stdout=subprocess.PIPE).communicate()[0].decode("UTF-8")
         tasks = tasklist.split("\r\n")[3:]
+        if len(tasks) == 0:
+            print("Start spotify first! Exiting...")
+            input("")
+            sys.exit(1)
+
         for entry in tasks:
             split = entry.split()
             if len(split) > 1:
