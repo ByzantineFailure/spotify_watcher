@@ -105,7 +105,7 @@ class WindowsSpotifyScraper:
         else:
             spl = result.split("-")
             print(spl)
-            return User(spl[0].strip(), spl[1].strip(), True)
+            return User(spl[0].strip(), "-".join(spl[1:]).strip(), True)
 
 class User:
     def __init__(self, song, artist, playing):
