@@ -114,7 +114,7 @@ class User:
         self.playing = playing
     
     def get_song_info(self):
-        return "{} - {}".format(self.song, self.artist)
+        return "| {} - {} | ".format(self.song, self.artist)
 
 
 def write_to_file(user):
